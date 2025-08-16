@@ -1,4 +1,28 @@
 ---
+// filepath: blog.astro
+
+
+// Astro files require you to wrap server-side code in a code fence using "---".
+// Otherwise, Astro tries to parse it as HTML/JSX, causing syntax errors.
+
+// This section is called the frontmatter 
+// and is used to define variables and settings for the page.
+
+
+// This is a function used to generate dinamic routes.
+/*
+export function getStaticPaths() {
+  return [
+    {params: {dog: 'clifford'}},
+    {params: {dog: 'rover'}},
+    {params: {dog: 'spot'}},
+  ];
+}
+
+const { dog } = Astro.params;
+*/
+
+const pageTitle = "SofosBlog"
 
 ---
 
@@ -8,14 +32,21 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Sofos Blog</title>
+		<title>{pageTitle}</title>
 	</head>
     <body>
         <a href="/">Inicio</a>
-        <a href="/about/">Sobre mi</a>
-        <a href="/blog/">Blog</a>
+        <a href="/about/">SobreMi</a>
+        <a href="/blog/">{pageTitle}</a>
 
-        <h1>Mi blog de aprendizaje de Astro </h1>
+        <h1>{pageTitle}</h1>
         <p>Aquí es donde publicaré sobre mi viaje de aprendizaje Astro.</p>
+        <p>Accede a los nuevos posts:</p>
+        <ul>
+        <li><a href="/posts/post-1/">Publicación 1</a></li>
+        <li><a href="/posts/post-2/">Publicación 2</a></li>
+        <li><a href="/posts/post-3/">Publicación 3</a></li>
+        </ul>
+        <p>¡Gracias por visitar!</p>
     </body>
 </html>
